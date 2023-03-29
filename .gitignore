@@ -1,0 +1,48 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+.data_cache/*
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# production
+/build
+dist
+/src/contracts-build
+/contract/.deps
+/src/contracts/artifacts
+/contract/artifacts
+/contract-build
+/cache
+
+
+# misc
+.DS_Store
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+
+# Webstorm config files
+.idea
+
+# VS code config files
+.vscode/
+
+.database
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+plugin.sketchplugin
+.storybook-out
+
+test.ts
+*.dat
