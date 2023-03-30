@@ -5,9 +5,11 @@ import processMatch from './processMatch'
 import { Log } from 'web3-core'
 import { saveState, STATE } from './state'
 import sleep from '../utils/sleep'
+import processCompletion from './processCompletion'
 
 export const CONFIRMATION_HASH = '0x23f45cb5875e7f29f713a73ded05ceba70bd3aa2435e5d1f69dc8d05f264d10c'
 export const MATCH_HASH = '0x371a1bb45741f91941f086f6c1521091f71a73103cfc9b14f5c87ad51f759562'
+export const COMPLETE_HASH = '0x6a4ad13fc302b30b44c7c378bd4859e0166ac93e7640625548336ec391fe9fe2'
 
 export default async function syncGnosis(fromBlock: number, toBlock?: number): Promise<void> {
   const events: Log[] = []
@@ -31,6 +33,8 @@ export default async function syncGnosis(fromBlock: number, toBlock?: number): P
       await processConfirmations(event)
     } else if (event.topics[0] === MATCH_HASH) {
       await processMatch(event)
+    } else if (event.topics[0] === COMPLETE_HASH) {
+      await processCompletion(event)
     }
   }
 
