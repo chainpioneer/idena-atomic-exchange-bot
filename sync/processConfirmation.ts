@@ -5,6 +5,7 @@ import getOrderState from '../utils/getOrderStateIdena'
 import sendMessageToSentry from '../notifications/sendMessageToSentry'
 import * as idenaProvider from '../provider/idena'
 import sendMessageToPublic from '../notifications/sendMessageToPublic'
+import config from '../constants/config'
 
 const minTimeGnosis = 30n * 60n
 const minTimeIdena = 60n * 60n
@@ -59,7 +60,7 @@ export default async function processConfirmation(event: Log) {
     const xdaiAmount = (Number(amountXDAI) / 1e18).toFixed(2)
 
     await sendMessageToPublic(
-      `Order #created ${secretHash}`
+      `Order #created <a href=${config.appBaseUrl}/order/${secretHash}>${secretHash}</a>`
       + `\n${dnaAmount} DNA -> ${xdaiAmount} XDAI`
       + `\nExchange rate ${Number(rate) / 10000} XDAI per DNA`
     )

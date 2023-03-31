@@ -8,6 +8,7 @@ const config = {
   explorerUrlGnosis: 'https://gnosisscan.io',
   contractAddressGnosis: '0x426b466Af327E53B4c2a7D1Ea7672E397BE7b408',
   contractAddressIdena: '0xE23369534EfBfbc1E51f028DAe5f412CCCe1ccA9',
+  appBaseUrl: 'https://idexchange.tech',
 }
 
 export default config
