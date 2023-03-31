@@ -60,7 +60,7 @@ export default async function processConfirmation(event: Log) {
     const xdaiAmount = (Number(amountXDAI) / 1e18).toFixed(2)
 
     await sendMessageToPublic(
-      `Order #created <a href=${config.appBaseUrl}/order/${secretHash}>${secretHash}</a>`
+      `Order #created <a href="${config.appBaseUrl}/order/${secretHash}">${secretHash}</a>`
       + `\n${dnaAmount} DNA -> ${xdaiAmount} XDAI`
       + `\nExchange rate ${Number(rate) / 10000} XDAI per DNA`
     )

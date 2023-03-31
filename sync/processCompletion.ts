@@ -11,7 +11,7 @@ export default async function processCompletion(event: Log) {
     try {
      secret = web3.eth.abi.decodeParameter('bytes', event.data);
      await sendMessageToPublic(
-      `Order #secret_revealed <a href=${config.appBaseUrl}/order/${secretHash}>${secretHash}</a>` +
+      `Order #secret_revealed <a href="${config.appBaseUrl}/order/${secretHash}">${secretHash}</a>` +
       `\nSecret: ${secret}`
      )
     } catch (e) {
